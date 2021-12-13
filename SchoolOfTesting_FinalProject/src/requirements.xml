@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<requirements>
+    <!-- pana marti cel tarziu sa avem macar repo-ul de Git creat, astfel incat sa avem pe ce lucra -->
+    <!-- assert-uri! -->
+    <later>cand incepem pe proiect o sa se lege mai bine lucrurile</later>
+
+    <important_method>click()</important_method>
+    <important_info>Chrome driver-ul este in School of testing/Selenium</important_info>
+    <important_info_2>sign in -> register -> generate mail -> mereu un mail nou la fiecare register, avem deja mail generator</important_info_2>
+    <important_info_3>nu folosim datele noastre personale</important_info_3>
+    <important_info_4>site-ul e plin de bug-uri (e creat special pt asta)</important_info_4>
+    <timestamps event="selenium-part 6">
+        <first>
+            30:00 -> xpath description
+            <!-- [1:21:06] - Ela incepe sa explice ce avem de facut pentru proiect
+                 Prerequisites: actiunile pe care le facem inainte sa incepem testul efectiv
+                 (setat environment, sa ajungem cu aplicatia pana intr-un punct, etc.)
+                 Le putem pune in @BeforeEach, doar sa ajungem pe pagina de Register
+                 Trebuie sa ne generam random mail, daca e deja generat nu va merge
+
+                 Asteptarea colegilor in forma de teste:
+                 sa testam field-urile din Personal Info
+            -->
+        </first>
+        <second>50:00 -> attribute/subtree modifications</second>
+    </timestamps>
+    <timestamps2></timestamps2>
+    <timestamps3></timestamps3>
+    <timestamps4></timestamps4>
+    <timestamps5></timestamps5>
+    <timestamps6></timestamps6>
+
+    <website info="to be tested">http://automationpractice.com/index.php</website>
+    <target>Macar 3 din urmatoarele 5 teste:</target>
+    <teste>
+        <test1>validarea elementelor, ca exista si ca sunt corecte</test1>
+        <test2>un test de happy path, completam campurile</test2>
+        <test3 timestamp="1:23:24">
+            negative path (lasam liber, introducem valori gresite)
+        </test3>
+        <test4>restrictia: site-ul primeste doar persoane de peste 18 ani, dropdowns, date of birth, sa o testam</test4>
+        <test5>test care descopera un bug</test5>
+    </teste>
+</requirements>
+
+<!--
+automationpractice.com
+
+API testing in Network (Chrome dev tools)
+
+proiectul: automationpractice.com ( )
+
+
+daca gasim un bug -> fara teste passed care au bug-uri in spate (doar teste failed cu bug-uri in spate)
+codul il vom pune pe github
+creem repo in git special pt proiect
+deliverable: un link catre repo-urile noastre de proiect (putem lucra direct pe master, nu trb branch)
+facem repo public
+maven: copiem dependentele ce le avem deja in selenium-practice
+pe git trb sa dam push
+pe site-ul asta trb wait-uri de 15 secunde, nu de 5 (wait function, wait seconds, etc.)
+
+false positive: cand testul e passed dar in spate e bug
+false negative: cand codul nostru e gresit, dar noi credem ca e de la site (ca are bug)
+
+asserturi (fara asta avem doar actiuni, important!)
+codul cat mai usor de inteles
+clean code (sa incercam)
+-->

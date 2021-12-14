@@ -8,8 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 import pages.RegistrationPage;
+
+import java.time.Duration;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class CreateAnAccountTest {
 
@@ -29,6 +36,31 @@ public class CreateAnAccountTest {
 
     @Test
     public void CreateAnAccount(){
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(registrationPage.registerButton));
+        registrationPage.clickOnRadioButton();
+        registrationPage.fillInPersonalInformation("Johnny","Test",
+                "amazing999tomato***");
+        registrationPage.selectDayOfBirth("7");
+        registrationPage.selectMonthOfBirth("1");
+        registrationPage.selectYearOfBirth("1997");
+        registrationPage.clickOnBoxes();
+        registrationPage.fillInAddress("Johnny","Test","Boeing",
+                "Apple street, nr. 9","Orange street, nr. 5","LA");
+        registrationPage.selectState("California");
+        registrationPage.fillInZipPostalCode("00000"); //000000
+        registrationPage.selectCountry("United States");
+        registrationPage.fillInAdditionalInfoPhonesAndAliasEmail("My name is " +
+                "Johnny Test and I like to chill","12344321","43211234",
+                "johnny@testing.com"); // johnny_test@testing.com
+        //registrationPage.clickOnRegisterButton();
+        assertThat(registrationPage.getAliasEmail(),is("johnny@testing.com")); // the bug test
+    }
+
+    // move common lines in @BeforeEach
+
+    @Test
+    public void AliasEmailFieldIsFilledWithCorrectInput(){
 
     }
 }
